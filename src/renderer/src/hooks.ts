@@ -1,7 +1,15 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { ActivityEvent, DashboardState } from '@shared/ipc'
+import type { ActivityEvent, DashboardState, RendererApi } from '@shared/ipc'
 
-export const api = window.api
+/** Reads the bridge on each call. The browser file installs it while modules are still loading. */
+export const api: RendererApi = new Proxy({} as RendererApi, {
+  get(_target, prop, receiver) {
+    const current = window.api
+    if (!current) throw new Error('Application bridge is not ready')
+    const value = Reflect.get(current, prop, receiver) as unknown
+    return typeof value === 'function' ? value.bind(current) : value
+  }
+})
 
 export function useDashboard(): DashboardState | null {
   const [state, setState] = useState<DashboardState | null>(null)
