@@ -3,6 +3,9 @@ name: Mac installer
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   dmg:
     runs-on: macos-latest
@@ -39,3 +42,13 @@ jobs:
             release/*.dmg
             release/*.zip
           if-no-files-found: error
+
+      - name: Add installers to the download page release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if ! gh release view "v${version}" >/dev/null 2>&1; then
+            gh release create "v${version}" --title "Verilumen Prospect Intelligence Browser ${version}" --notes "Mac and Windows installers."
+          fi
+          gh release upload "v${version}" release/*.dmg release/*.zip --clobber
