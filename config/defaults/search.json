@@ -1,0 +1,9 @@
+{
+  "name": "Verilumen Prospect Research",
+  "zoominfoStartUrl": "https://app.zoominfo.com/",
+  "industry": ["Manufacturing", "Technology"],
+  "naics": ["334413"],
+  "maxCompanies": 1,
+  "maxEmployeesPerCompany": 25,
+  "requireGoogleAuth": true
+}

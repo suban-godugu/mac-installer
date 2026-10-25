@@ -1,0 +1,191 @@
+/* Ambient brand motifs. Only used on boot, hero bands and empty states. */
+.tech-grid {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+.signal-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wafer-rings {
+  position: absolute;
+  pointer-events: none;
+  color: var(--accent);
+}
+
+/* dashboard hero band */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: radial-gradient(120% 140% at 100% 0%, var(--accent-soft), transparent 55%),
+    linear-gradient(180deg, var(--surface-1), var(--bg-2));
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(90deg, transparent 30%, #000 100%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--sp-5) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.hero .wafer-rings {
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+}
+
+/* ========== boot screen ========== */
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-boot);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(60% 60% at 50% 45%, #061722 0%, #02060a 70%);
+  color: #f8fafc;
+  overflow: hidden;
+  transition: opacity 360ms var(--ease-out), visibility 360ms;
+}
+.boot[data-done='true'] {
+  opacity: 0;
+  visibility: hidden;
+}
+.boot .tech-grid-layer {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(50% 50% at 50% 50%, #000, transparent);
+}
+.boot .wafer-rings {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #22d3ee;
+  opacity: 0.18;
+}
+.boot-core {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  width: min(440px, 88vw);
+}
+.boot-logo {
+  position: relative;
+  overflow: hidden;
+  padding: 4px 8px;
+}
+.boot-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  left: -50%;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  animation: sweep 1.4s var(--ease-in-out) 0.15s 1 both;
+}
+@keyframes sweep {
+  to {
+    left: 120%;
+  }
+}
+.boot-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+}
+.boot-trace {
+  width: 100%;
+  height: 28px;
+  color: #22d3ee;
+}
+.boot-trace path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: trace 1.2s var(--ease-out) forwards;
+}
+@keyframes trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.boot-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+}
+.boot-step {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  color: #475569;
+  transition: color var(--dur-base);
+}
+.boot-step[data-state='active'] {
+  color: #cbd5e1;
+}
+.boot-step[data-state='done'] {
+  color: #94a3b8;
+}
+.boot-step[data-state='done'] .boot-step-status {
+  color: #22d3ee;
+}
+.boot-step[data-state='warn'] .boot-step-status {
+  color: #f0a63a;
+}
+.boot-step .led {
+  width: 6px;
+  height: 6px;
+}
+.boot-progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.boot-progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #0066ff, #00d9ff);
+  box-shadow: 0 0 10px #00d9ff;
+  transition: width 260ms var(--ease-out);
+}

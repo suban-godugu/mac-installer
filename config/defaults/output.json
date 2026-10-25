@@ -1,0 +1,19 @@
+{
+  "outputDir": "",
+  "qualifiedOnly": true,
+  "auditColumns": [
+    "Company Name",
+    "Employee Name",
+    "Employee Role",
+    "Employee Business Email",
+    "Department",
+    "Priority",
+    "Relevance Score",
+    "Qualification Reason",
+    "Company NAICS",
+    "Company Location",
+    "Source",
+    "Collection Timestamp",
+    "Validation Status"
+  ]
+}

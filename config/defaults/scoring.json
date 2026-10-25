@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "role": 30,
+    "department": 20,
+    "ate": 20,
+    "semiconductorTesting": 15,
+    "seniority": 10,
+    "business": 5
+  },
+  "tiers": {
+    "tier1": 80,
+    "tier2": 60,
+    "tier3": 40
+  },
+  "relevantMinScore": 40
+}

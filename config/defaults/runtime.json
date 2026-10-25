@@ -1,0 +1,11 @@
+{
+  "allowedDomains": ["zoominfo.com", "google.com"],
+  "actionsPerMinute": 20,
+  "pageOpensPerMinute": 8,
+  "minActionDelayMs": 1200,
+  "maxControllerSteps": 25,
+  "retryAttempts": 3,
+  "retryBaseDelayMs": 2000,
+  "aiTimeoutMs": 60000,
+  "researchBatchSize": 20
+}

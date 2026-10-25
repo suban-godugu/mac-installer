@@ -1,0 +1,50 @@
+{
+  "targetCompany": "Verilumen Labs",
+  "targetBusiness": [
+    "Semiconductor test intelligence",
+    "ATE-related solutions",
+    "Test engineering intelligence",
+    "Semiconductor manufacturing/test workflows",
+    "Test optimization",
+    "Failure/yield intelligence",
+    "Engineering analytics"
+  ],
+  "highPriority": [
+    "VP Engineering",
+    "VP Manufacturing",
+    "VP Operations",
+    "VP Test Engineering",
+    "Director of Test Engineering",
+    "Director of Engineering",
+    "Director of Manufacturing",
+    "Director of Operations",
+    "Head of Semiconductor Test",
+    "Head of ATE",
+    "Head of Test",
+    "Test Engineering Manager",
+    "Engineering Manager"
+  ],
+  "secondPriority": [
+    "Senior Test Engineer",
+    "ATE Engineer",
+    "Semiconductor Test Engineer",
+    "Product/Test Engineer",
+    "Manufacturing Engineer",
+    "Production Engineering Manager",
+    "Operations Manager",
+    "DFT Engineer",
+    "Design-for-Test Engineer",
+    "Test Manager",
+    "Product Engineering Manager"
+  ],
+  "lowPriority": [
+    "HR",
+    "Recruiting",
+    "Finance",
+    "Legal",
+    "Administrative",
+    "Intern",
+    "Unrelated Sales",
+    "Unrelated Marketing"
+  ]
+}
