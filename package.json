@@ -12,7 +12,8 @@
     "test": "vitest run",
     "test:unit": "vitest run --exclude tests/e2e.fixture.test.ts",
     "fixture-run": "tsx --tsconfig tsconfig.node.json scripts/fixtureRun.ts",
-    "dist:mac": "electron-vite build && electron-builder --mac --arm64 --x64"
+    "dist:mac": "electron-vite build && electron-builder --mac --arm64 --x64 --publish never",
+    "dist:win": "electron-vite build && electron-builder --win --x64"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
@@ -56,6 +57,19 @@
         "zip"
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Verilumen Prospect Intelligence Browser"
     }
   },
   "allowScripts": {
